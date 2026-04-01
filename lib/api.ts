@@ -38,3 +38,12 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
     const response = await axios.get<Note>(`/notes/${id}`);
     return response.data;
 }
+
+export const getCategories = async (tag?: string) => {
+  const res = await axios.get<Note[]>('/categories', {
+    params: {
+      tag,
+    },
+  });
+  return res.data;
+};
