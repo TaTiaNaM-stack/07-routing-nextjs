@@ -1,5 +1,9 @@
 export type NoteTag = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
 
+export type NoteTags = {
+  tags: NoteTag[];
+};
+
 export interface Note {
   id: string;
   title: string;
