@@ -1,13 +1,13 @@
-import { NoteTags } from '@/types/note';
+// import { Note } from '@/types/note';
 import css from './SidebarNotes.module.css';
 import { getCategories } from '@/lib/api';
 
-interface NotesSidebarProps {
-  notes: NoteTags[];
-}
+// interface NotesSidebarProps {
+//   notes: Note[];
+// }
 
-const NotesSidebar = async ({ notes }: NotesSidebarProps) => {
-  const categories = await getCategories(notes[0].tags[0]);
+const NotesSidebar = async () => {
+  const categories = await getCategories();
   console.log('Categories:', categories);
   return (
     <ul className={css.menuList}>  
@@ -16,10 +16,10 @@ const NotesSidebar = async ({ notes }: NotesSidebarProps) => {
           All notes
         </a>
       </li>
-      {categories.map((tag) => (
-        <li key={tag} className={css.menuItem}>
-            <a href={`/notes/filter/${tag}`} className={css.menuLink}>
-                {tag}
+      {categories.map(category => (
+        <li key={category.tag} className={css.menuItem}>
+            <a href={`/notes/filter/${category.tag}`} className={css.menuLink}>
+                {category.tag}
             </a>
         </li>
     ))}

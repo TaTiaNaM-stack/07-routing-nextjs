@@ -11,5 +11,9 @@ export default async function FilterPage({ params }: FilterPageProps) {
   const searchQuery = slug[0] === 'all' ? '' : slug[0];
   const data = await getCategories(searchQuery);
   console.log('Filtered notes:', data);
-  return <NoteList notes={data} />;
+  return (
+  <div>
+    <NoteList notes={data} />
+  </div>
+);
 }
