@@ -19,9 +19,9 @@ export default function NotesClient() {
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
 
-	const { data: notes, isSuccess, isLoading, error } = useQuery({
-		queryKey: ['notes', {currentPage, searchQuery}],
-		queryFn: () => fetchNotes(searchQuery, currentPage),
+	const { data: notes, isSuccess, error } = useQuery({
+		queryKey: ['notes', {currentPage, searchQuery, tag: ''}],
+		queryFn: () => fetchNotes(searchQuery, currentPage, ''),
 		placeholderData: keepPreviousData,
 		refetchOnMount: false
 	});
