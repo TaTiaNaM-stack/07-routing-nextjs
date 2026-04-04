@@ -8,16 +8,16 @@
   margin-bottom: 16px;
 }
 
-.menuLink {
+.menu Link {
   text-decoration: none;
-  color: white;
+  /* color: white; */
   font-size: 16px;
   display: block;
   padding: 8px 16px;
   transition: background-color 0.3s ease;
 }
 
-.menuLink:hover {
+.menuLink {
   background-color: #444;
   color: #ddd;
 }

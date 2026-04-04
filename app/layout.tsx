@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  // modal,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
@@ -33,7 +33,7 @@ export default function RootLayout({
           <Header />
           <main>
             {children}
-            {/* {modal} */}
+            {modal}
           </main>
           <Footer />
         </TanStackProvider>

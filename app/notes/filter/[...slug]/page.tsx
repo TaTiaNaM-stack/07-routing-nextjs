@@ -26,3 +26,5 @@ const FilterPage = async ({ params }: Props) => {
     </div>
   );
 }
+
+export default FilterPage;

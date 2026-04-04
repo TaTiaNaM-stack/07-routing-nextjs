@@ -11,8 +11,8 @@ export const fetchNotes = async (searchQuery: string, currentPage: number, tag: 
       params: {
         page: currentPage,
         perPage: 12,
-        search: searchQuery,
-        tag: tag && tag !== "all" && { tag },
+        ...(searchQuery && { search: searchQuery }),
+        ...(tag && tag !== "all" && { tag }),
       },
     }); 
 
