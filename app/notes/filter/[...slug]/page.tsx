@@ -1,4 +1,4 @@
-import NoteList from "@/components/NoteList/NoteList";
+import NotesClient from "./Notes.client";
 import { fetchNotes } from "@/lib/api";
 import {
   QueryClient,
@@ -14,11 +14,14 @@ const FilterPage = async ({ params }: Props) => {
   const { tag } = await params;
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["notes", tag], () => fetchNotes('', 1, tag && tag !== "all" && { tag }));
+  await queryClient.prefetchQuery({
+    queryKey: ["notes", tag],
+    queryFn: () => fetchNotes('', 1, tag),
+});
   return (
     <div>
        <HydrationBoundary state={dehydrate(queryClient)}>
-        <NoteList notes={data.notes} />
+        <NotesClient />
       </HydrationBoundary>
     </div>
   );
