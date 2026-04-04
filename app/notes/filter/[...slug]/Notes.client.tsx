@@ -3,6 +3,7 @@
 import { fetchNotes } from "@/lib/api";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { useParams } from 'next/navigation';
 import { useDebouncedCallback } from "use-debounce";
 import css from "./NotesPage.module.css"
 import SearchBox from "@/components/SearchBox/SearchBox";
@@ -14,6 +15,7 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 export default function NotesClient() {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [currentPage, setCurrentPage] = useState(1);
+	const { tag } = useParams<{ tag: string }>();
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const openModal = () => setIsModalOpen(true);

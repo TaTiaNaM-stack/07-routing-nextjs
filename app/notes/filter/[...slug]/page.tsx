@@ -1,20 +1,25 @@
-'use client'
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
 import NoteList from "@/components/NoteList/NoteList";
 import { fetchNotes } from "@/lib/api";
+import {
+  QueryClient,
+  HydrationBoundary,
+  dehydrate,
+} from "@tanstack/react-query";
 
-const FilterPage = () => {
-  const params = useParams<{ slug: string[] }>();
-  const category = params.slug[0] === 'all' ? undefined : params.slug[0];
-  const { data } = useQuery({
-    queryKey: ['notes', category],
-    queryFn: () => fetchNotes('', 1, category || ''),
-    refetchOnMount: false,
-  });
+type Props = {
+  params: Promise<{ tag: string }>;
+};
+
+const FilterPage = async ({ params }: Props) => {
+  const { tag } = await params;
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["notes", tag], () => fetchNotes('', 1, tag && tag !== "all" && { tag }));
   return (
     <div>
-      {data?.notes?.length > 0 && <NoteList notes={data.notes} />}
+       <HydrationBoundary state={dehydrate(queryClient)}>
+        <NoteList notes={data.notes} />
+      </HydrationBoundary>
     </div>
   );
 }
