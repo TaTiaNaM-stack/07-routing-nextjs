@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-query";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 };
 
 const FilterPage = async ({ params }: Props) => {
@@ -22,7 +22,7 @@ const FilterPage = async ({ params }: Props) => {
   return (
     <div>
        <HydrationBoundary state={dehydrate(queryClient)}>
-        <NotesClient tag="note.tag"/>
+        <NotesClient tag={tag}/>
       </HydrationBoundary>
     </div>
   );
