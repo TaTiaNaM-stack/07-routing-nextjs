@@ -10,7 +10,7 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
 import Modal from "@/components/Modal/Modal";
-import NoteDetailsClient from "@/app/@modal/(.)notes/[id]/page";
+import NoteDetailsClient from "@/app/@modal/(.)notes/[id]/NotePreview.client";
 
 export default function NotesClient() {
 	const [searchQuery, setSearchQuery] = useState('');
