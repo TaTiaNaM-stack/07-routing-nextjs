@@ -10,10 +10,10 @@ const Header = () => {
       <nav aria-label='Main Navigation'>
         <ul className={css.navigation}>
           <li>
-            <Link href='/'>Home</Link>
+            <Link href='/' className={css.navigationItem}>Home</Link>
           </li>
           <li>
-            <Link href='/notes/filter/all'>Notes</Link>
+            <Link href='/notes/filter/all' className={css.navigationItem}>Notes</Link>
           </li>
         </ul>
       </nav>
