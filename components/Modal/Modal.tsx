@@ -41,6 +41,6 @@ export default function Modal({ children, onClose }: ModalProps) {
         {children}
       </div>
       </div>,
-    document.getElementById('modal-root') as HTMLDivElement)
-  )
+    document.body
+  ))
 }
