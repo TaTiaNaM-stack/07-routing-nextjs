@@ -18,7 +18,7 @@ const FilterPage = async ({ params }: Props) => {
   await queryClient.prefetchQuery({
     queryKey: ["notes", tag],
     queryFn: () => fetchNotes('', 1, tag),
-});
+  });
   return (
     <div>
        <HydrationBoundary state={dehydrate(queryClient)}>
@@ -26,6 +26,6 @@ const FilterPage = async ({ params }: Props) => {
       </HydrationBoundary>
     </div>
   );
-}
+};
 
 export default FilterPage;

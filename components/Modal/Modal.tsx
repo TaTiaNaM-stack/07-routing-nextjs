@@ -23,7 +23,7 @@ export default function Modal({ children, onClose }: ModalProps) {
       document.body.style.overflow = "";
 	  };
 	}, [onClose]);
-   const handleBackdropClose = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleBackdropClose = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
@@ -37,10 +37,10 @@ export default function Modal({ children, onClose }: ModalProps) {
         aria-modal="true"
         onClick={handleBackdropClose}
       >
-      <div className={css.modal}>
-        {children}
-      </div>
+        <div className={css.modal}>
+          {children}
+        </div>
       </div>,
     document.body
-  ))
-}
+  ));
+};

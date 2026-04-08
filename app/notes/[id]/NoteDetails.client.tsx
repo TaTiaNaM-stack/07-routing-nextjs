@@ -1,5 +1,5 @@
 'use client';
-// import { Note } from "@/types/note";
+
 import css from "./NoteDetails.module.css";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -34,7 +34,7 @@ const NoteDetailsClient = () => {
               <p className={css.date}>{note.createdAt}</p>
           </div>
         </div>
-     );
- }
+    );
+};
 
  export default NoteDetailsClient;

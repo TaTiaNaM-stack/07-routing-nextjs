@@ -8,17 +8,17 @@ interface SearchBoxProps {
 }
 
 export default function SearchBox({ onChange, searchQuery }: SearchBoxProps ) {
-const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e) => {
+    const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e) => {
         onChange(e.target.value);
-      }
+    }
 
-  return (
-    <input
-      className={css.input}
-      type="text"
-      placeholder="Search notes"
-      defaultValue={searchQuery}
-      onChange={handleChange}
-    />
-  )
-}
+    return (
+      <input
+        className={css.input}
+        type="text"
+        placeholder="Search notes"
+        defaultValue={searchQuery}
+        onChange={handleChange}
+      />
+    );
+};

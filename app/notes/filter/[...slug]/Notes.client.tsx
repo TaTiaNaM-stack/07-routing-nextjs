@@ -3,14 +3,12 @@
 import { fetchNotes } from "@/lib/api";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { useParams } from 'next/navigation';
 import { useDebouncedCallback } from "use-debounce";
 import css from "./NotesPage.module.css"
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
 import Modal from "@/components/Modal/Modal";
-import NoteDetailsClient from "@/app/@modal/(.)notes/[id]/NotePreview.client";
 import NoteForm from "@/components/NoteForm/NoteForm";
 
 interface Props {
@@ -65,4 +63,5 @@ export default function NotesClient({ tag }: Props) {
 			</Modal>
 		)}
 	</div>
-  )}
+  )
+}

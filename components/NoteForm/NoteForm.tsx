@@ -1,4 +1,3 @@
-
 import css from './NoteForm.module.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
@@ -36,7 +35,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
 
   const handleSubmit = (values: CreateNoteData) => {
       mutate(values);
-    };
+  };
 
   return (
     <Formik
@@ -103,5 +102,5 @@ export default function NoteForm({ onClose }: NoteFormProps) {
         </div>
       </Form>
     </Formik>
-  )
-}
+  );
+};
